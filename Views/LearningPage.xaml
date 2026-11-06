@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Proyect.ViewModels"
+             x:Class="Proyect.Views.LearningPage"
+             Title="Aprendizaje"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <vm:LearningViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30, 40, 30, 30" 
+                             Spacing="20" 
+                             VerticalOptions="Start" 
+                             HorizontalOptions="Center"
+                             MaximumWidthRequest="400">
+            
+            <Image Source="logoelectroedu.png" 
+                    HeightRequest="200" 
+                     HorizontalOptions="Center" 
+                    Margin="0,10,0,10"/>
+
+            <Label Text="Escoge un tema" 
+                   FontSize="26" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="Green" 
+                   Margin="0,0,0,10"/>
+
+            
+            <VerticalStackLayout Spacing="15">
+
+              
+                <Button Text="Conceptos Básicos"
+                        Command="{Binding ConceptosBasicosCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="60"
+                        CornerRadius="10" />
+            
+                <Button Text="Componentes"
+                        Command="{Binding ComponentesCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="60"
+                        CornerRadius="10" />
+       
+                <Button Text="Electrónica Analógica"
+                        Command="{Binding AnalogicaCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="60"
+                        CornerRadius="10" />
+
+                <Button Text="Electrónica Digital"
+                        Command="{Binding DigitalCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="60"
+                        CornerRadius="10" />
+
+                <BoxView HeightRequest="1" Color="Transparent" Margin="0,5" />
+
+                <Button Text="Regresar"
+                        Command="{Binding RegresarCommand}"
+                        BackgroundColor="#E81123"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="55"
+                        CornerRadius="10" />
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Proyect.ViewModels"
+             x:Class="Proyect.Views.ConceptosBasicosPage2"
+             Title="Conceptos Básicos"
+             BackgroundColor="#F3F3F3">
+
+    <ContentPage.BindingContext>
+        <vm:ConceptosBasicosViewModel2 />
+    </ContentPage.BindingContext>
+
+   
+    <Grid RowDefinitions="Auto, *, Auto" RowSpacing="15" Padding="20">
+
+        <!-- Título superior fijo (Fila 0) -->
+        <Label Grid.Row="0"
+               Text="Aprende los Fundamentos" 
+               FontSize="22" 
+               FontAttributes="Bold" 
+               TextColor="Green" 
+               HorizontalOptions="Center"
+               Margin="0,0,0,5"/>
+
+        <!-- CollectionView que genera las tarjetas dinámicamente (Fila 1) -->
+        <CollectionView Grid.Row="1" 
+                          ItemsSource="{Binding Conceptos2}"
+                          SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Tarjeta contenedora para cada concepto -->
+                    <Frame BackgroundColor="White" 
+                           CornerRadius="12" 
+                           HasShadow="True" 
+                           Margin="0,0,0,15" 
+                           Padding="15">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <!-- Título del concepto -->
+                            <Label Text="{Binding Titulo}" 
+                                   FontSize="18" 
+                                   FontAttributes="Bold" 
+                                   TextColor="#333333" />
+
+                            <!-- Imagen ilustrativa -->
+                            <Image Source="{Binding Imagen}" 
+                                   HeightRequest="120" 
+                                   Aspect="AspectFit" 
+                                   HorizontalOptions="Center" />
+
+                            <!-- Descripción -->
+                            <Label Text="{Binding Descripcion}" 
+                                   FontSize="14" 
+                                   TextColor="Gray" 
+                                   LineHeight="1.2" />
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Zona de Botones (Fila 2) -->
+        <VerticalStackLayout Grid.Row="2" Spacing="10">
+
+            <!-- Botón para ir a realizar la evaluación -->
+            <Button Text="Realizar Evaluación del Tema"
+                    Command="{Binding IrAEvaluacionCommand}"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="10" />
+
+            <!-- Botón bloqueado hasta aprobar el examen con 17 aciertos -->
+            <Button Text="Siguientes Temas"
+                    Command="{Binding SiguienteTemaCommand}"
+                    IsEnabled="{Binding IsSiguienteTemaHabilitado}"
+                    BackgroundColor="YellowGreen"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="10" />
+
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

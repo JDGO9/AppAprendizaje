@@ -1,0 +1,42 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Proyect.ViewModels"
+             x:Class="Proyect.Views.HerramientasExtrasPage"
+             Title="Herramientas Extras"
+             BackgroundColor="#F3F3F3">
+
+    <ContentPage.BindingContext>
+        <vm:HerramientasExtrasViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+        <Image Source="logoelectroedu.png" 
+         HeightRequest="200" 
+         HorizontalOptions="Center" 
+         Margin="0,10,0,10"/>
+
+        <Label Text="Recursos Adicionales" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               TextColor="#333333" 
+               Margin="0,0,0,20"/>
+
+              <Button Text="Videos de refuerzo"
+                Command="{Binding VideosRefuerzoCommand}"
+                BackgroundColor="green"
+                TextColor="White"
+                FontAttributes="Bold"
+                HeightRequest="60"
+                CornerRadius="12"/>
+
+              <Button Text="Compra de componentes"
+                Command="{Binding CompraComponentesCommand}"
+                BackgroundColor="green"
+                TextColor="White"
+                FontAttributes="Bold"
+                HeightRequest="60"
+                CornerRadius="12"/>
+
+    </VerticalStackLayout>
+</ContentPage>

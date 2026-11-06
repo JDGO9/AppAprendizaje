@@ -1,0 +1,70 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Proyect.ViewModels"
+             x:Class="Proyect.Views.CompraComponentesPage"
+             Title="Compra de Componentes"
+             BackgroundColor="#F3F3F3">
+
+    <ContentPage.BindingContext>
+        <vm:CompraComponentesViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid Padding="20">
+        <CollectionView ItemsSource="{Binding Tiendas}"
+                          SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="White" 
+                           CornerRadius="12" 
+                           HasShadow="True" 
+                           Margin="0,0,0,15" 
+                           Padding="15">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            
+                            <Image Source="{Binding Imagen}" 
+                                   HeightRequest="150" 
+                                   Aspect="AspectFill" />
+
+                            
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Label Grid.Column="0"
+                                       Text="{Binding Nombre}" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#2196F3" />
+
+                                <Label Grid.Column="1"
+                                       Text="{Binding Tipo}" 
+                                       FontSize="12" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       BackgroundColor="#4CAF50"
+                                       Padding="8,4"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+
+                           
+                            <Label Text="{Binding Descripcion}" 
+                                   FontSize="14" 
+                                   TextColor="#333333" />
+
+                           
+                            <Button Text="Visitar sitio / Ubicación"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CompraComponentesViewModel}}, Path=AbrirEnlaceCommand}"
+                                    CommandParameter="{Binding Link}"
+                                    BackgroundColor="#FB8C00"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    HeightRequest="40"
+                                    CornerRadius="8"
+                                    Margin="0,5,0,0"/>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

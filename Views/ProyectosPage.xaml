@@ -1,0 +1,58 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Proyect.ViewModels"
+             x:Class="Proyect.Views.ProyectosPage"
+             Title="Proyectos"
+             BackgroundColor="#F3F3F3">
+
+    <Grid Padding="20">
+        <CollectionView ItemsSource="{Binding Proyectos}"
+                          SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="White" 
+                           CornerRadius="12" 
+                           HasShadow="True" 
+                           Margin="0,0,0,15" 
+                           Padding="15">
+                        <Label Grid.Row="0"
+                                Text="Aprende los Fundamentos" 
+                                FontSize="22" 
+                                FontAttributes="Bold" 
+                                TextColor="Green" 
+                                HorizontalOptions="Center"
+                                Margin="0,0,0,5"/>
+
+
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="{Binding Titulo}" 
+                                   FontSize="18" 
+                                   HorizontalOptions="Center" 
+                                   FontAttributes="Bold" 
+                                   TextColor="Green" />
+
+                            <Image Source="{Binding Imagen}" 
+                                   HeightRequest="150" 
+                                   Aspect="AspectFill" />
+
+                            <Label Text="{Binding Descripcion}" 
+                                   FontSize="14" 
+                                   TextColor="#333333" />
+
+                            <Label Text="{Binding Link, StringFormat='Enlace: {0}'}" 
+                                   FontSize="12" 
+                                   TextColor="Blue" 
+                                   TextDecorations="Underline" />
+
+                            <Label Text="{Binding Autor, StringFormat='Autor: {0}'}" 
+                                   FontSize="12" 
+                                   FontAttributes="Italic" 
+                                   TextColor="LimeGreen" />
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

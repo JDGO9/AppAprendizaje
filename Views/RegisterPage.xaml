@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Proyect.ViewModels"
+             x:Class="Proyect.Views.RegisterPage"
+             Title="Crear Cuenta"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Start" MaximumWidthRequest="400">
+
+        <Image Source="logoelectroedu.png" 
+        HeightRequest="200" 
+        HorizontalOptions="Center" 
+        Margin="0,10,0,10"/>
+        
+        <Label Text="Regístrate" 
+               FontSize="28" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               TextColor="green" />
+
+        <Entry Placeholder="Correo electrónico"
+               Text="{Binding Email}"
+               Keyboard="Email"
+               HeightRequest="50" />
+
+        <Entry Placeholder="Contraseña (mínimo 6 caracteres)"
+               Text="{Binding Password}"
+               IsPassword="True"
+               HeightRequest="50" />
+
+        <Button Text="Registrarse"
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="green"
+                TextColor="White"
+                HeightRequest="50" />
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                           IsVisible="{Binding IsBusy}" 
+                           Color="green" 
+                           HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyect.Views.DashboardPage"
+             Title="ElectroEdu"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" 
+                             Spacing="25" 
+                             VerticalOptions="Start" 
+                             HorizontalOptions="Center"
+                             MaximumWidthRequest="450">
+
+          
+            <Image Source="logoelectroedu.png" 
+                   HeightRequest="200" 
+                   HorizontalOptions="Center" 
+                   Margin="0,10,0,10"/>
+
+          
+            
+
+            <Label Text="Selecciona una opción para continuar" 
+                   FontSize="14" 
+                   TextColor="LightGreen" 
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,10"/>
+
+            
+            <Grid RowDefinitions="Auto, Auto" 
+                  ColumnDefinitions="*, *" 
+                  RowSpacing="15" 
+                  ColumnSpacing="15">
+
+              
+                <Button Grid.Row="0" Grid.Column="0"
+                        Text="Aprendizaje"
+                        Command="{Binding AprendizajeCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="90"
+                        CornerRadius="12" />
+
+               
+                <Button Grid.Row="0" Grid.Column="1"
+                        Text="Proyectos"
+                        Command="{Binding EstadisticasCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="90"
+                        CornerRadius="12" />
+
+                
+                <Button Grid.Row="1" Grid.Column="0"
+                        Text="Herramientas Extras"
+                        Command="{Binding AjustesCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="90"
+                        CornerRadius="12" />
+
+            
+                <Button Grid.Row="1" Grid.Column="1"
+                        Text="Cerrar Sesión"
+                        Command="{Binding LogoutCommand}"
+                        BackgroundColor="#E81123"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="90"
+                        CornerRadius="12" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
